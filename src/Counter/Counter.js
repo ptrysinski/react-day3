@@ -1,11 +1,34 @@
-import React from 'react';
+import React from 'react'
 
-const Counter = (props) => (
-  <div>
-    <h1>0</h1>
-    <button>+</button>
-  </div>
-)
+class Counter extends React.Component {
+    constructor() {
+        super()
+
+        this.state = {
+            number: 10,
+        }
+    }
+
+    inc() {
+        this.setState({ number: this.state.number + 1 })
+    }
+    render() {
+        return (
+            <div>
+                <h1>
+                    {this.state.number}
+                </h1>
+
+                <button
+                    onClick={this.inc.bind(this)}
+                >
+                    +
+                </button>
+            </div>
+        )
+    }
+}
+    
 
 
-export default Counter;
+export default Counter
